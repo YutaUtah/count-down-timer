@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
 import TimeElem from "./components/TimeElem";
-import TimeButton from "./TimeButton";
+import TimeButton from "./components/TimeButton";
 import "../src/components/TimeElem.css";
 import "./App.css";
 
@@ -54,8 +54,12 @@ export default class App extends Component {
       if (updatedSeconds === 0) {
         if (updatedMinutes === 0) {
           if (updatedHours === 0) {
+            if (this.state.status === 1) {
+              this.setState({ isTimeUp: false });
+            } else {
+              this.setState({ isTimeUp: true });
+            }
             this.setState({ status: 1 });
-            this.setState({ isTimeUp: true });
             clearInterval(this.state.interValId);
             return;
           }
@@ -99,7 +103,7 @@ export default class App extends Component {
       time: {
         hours: "00", minutes: "00", seconds: "00",
       },
-      status: 0,
+      status: 1,
       interValId: "",
       isTimeUp: false,
       started: false,
