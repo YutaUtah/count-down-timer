@@ -1,0 +1,10 @@
+.timer-element {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.input-element {
+    border-radius: 10px;
+    border: 1px solid rgb(138, 140, 139);
+}
